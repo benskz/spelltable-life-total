@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Spelltable Life Total",
+  "version": "1.0",
+  "description": "Quality of life improvements to aid with life total changes on Spelltable.",
+  "permissions": ["activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["https://spelltable.wizards.com/game/*"],
+      "js": ["content.js"]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "spelltable-life-total",
+  "version": "1.0.0",
+  "description": "Chrome extension for Spelltable to help with life total math.",
+  "main": "index.js",
+  "repository": "git@github.com:benskz/spelltable-life-total.git",
+  "author": "benskz <bernardo@unlockingthedigital.com>",
+  "license": "MIT"
+}
