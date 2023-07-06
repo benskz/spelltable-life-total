@@ -6,7 +6,7 @@
   "permissions": ["activeTab"],
   "content_scripts": [
     {
-      "matches": ["https://spelltable.wizards.com/game/*"],
+      "matches": ["https://spelltable.wizards.com/*"],
       "js": ["spelltable-life-total.js"],
       "css": ["spelltable-life-total.css"]
     }
