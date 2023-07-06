@@ -1,10 +1,14 @@
 console.debug('Initializing Spelltable Life Total.');
 
 const DOM_POLL_INTERVAL = 3000;
-const COMMIT_TIMEOUT = 1000;
+const COMMIT_TIMEOUT = 1500;
 
 let decrementButton = null;
 let incrementButton = null;
+
+const TOOLTIP_CLASS = 'spelltable-life-total-tooltip';
+const TOOLTIP_SHOW_CLASS = 'spelltable-life-total-tooltip-show';
+let deltaTooltip = null;
 
 let lifeDelta = 0;
 let lifeDeltaCommitTimeout = null;
@@ -12,12 +16,20 @@ let lifeDeltaCommitTimeout = null;
 const updateLifeDelta = (delta) => {
   lifeDelta = lifeDelta + delta;
 
+  // update the tooltip, add + if positive
+  deltaTooltip.innerText = lifeDelta > 0 ? `+${lifeDelta}` : lifeDelta;
+  // add the show class
+  deltaTooltip.classList.add(TOOLTIP_SHOW_CLASS);
+
   // clear the timeout
   lifeDeltaCommitTimeout && clearTimeout(lifeDeltaCommitTimeout);
 
   // set a timeout to commit the life delta
   lifeDeltaCommitTimeout = setTimeout(() => {
     console.debug('Reset Life Delta:', lifeDelta);
+
+    // hide the tooltip
+    deltaTooltip.classList.remove(TOOLTIP_SHOW_CLASS);
 
     // reset the life delta
     lifeDelta = 0;
@@ -36,6 +48,18 @@ const init = () => {
   incrementButton.addEventListener('click', (e) => {
     updateLifeDelta(1);
   });
+
+  // add tooltip element to parent of buttons
+  const tooltip = document.createElement('div');
+  tooltip.classList.add(TOOLTIP_CLASS);
+  tooltip.innerText = '0';
+  decrementButton.parentElement.appendChild(tooltip);
+  deltaTooltip = tooltip;
+
+  // remove overflow-hidden from container
+  // container can be found 2 levels up from decrement button
+  const container = decrementButton.parentElement.parentElement;
+  container.classList.remove('overflow-hidden');
 
   console.debug('Successfully Initialized Spelltable Life Total.');
 };

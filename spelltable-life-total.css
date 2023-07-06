@@ -1,0 +1,34 @@
+.spelltable-life-total-tooltip {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgb(35, 43, 57);
+  box-shadow: 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
+  color: rgb(160, 174, 192);
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+/* Caret above */
+.spelltable-life-total-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid rgb(35, 43, 57);
+}
+
+.spelltable-life-total-tooltip-show {
+  opacity: 1;
+}
