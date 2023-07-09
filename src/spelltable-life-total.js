@@ -101,6 +101,11 @@ const LIFE_CHANGE_FORM_HIDE_TIMEOUT_DURATION = 3000;
 let lifeChangeFormHideTimeout = null;
 
 const displayLifeChangeInput = () => {
+  // if the life change form is already showing, do nothing
+  if (document.querySelector('.spelltable-life-total-change-form')) {
+    return;
+  }
+
   // start the hide timeout
   lifeChangeFormHideTimeout = setTimeout(() => {
     hideTooltip();
