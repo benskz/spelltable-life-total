@@ -1,0 +1,93 @@
+.spelltable-life-total-tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgb(35, 43, 57);
+  box-shadow: 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
+  color: rgb(160, 174, 192);
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  /* pointer-events: none; */
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+/* Caret above */
+.spelltable-life-total-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid rgb(35, 43, 57);
+}
+
+.spelltable-life-total-tooltip-show {
+  opacity: 1;
+}
+
+/* Change Form */
+/* all on one line */
+.spelltable-life-total-change-form {
+  display: flex;
+  width: 78px;
+  padding: 4px 0;
+
+  /* Align items vertically */
+  align-items: center;
+}
+
+.spelltable-life-total-change-form-input {
+  flex-grow: 1;
+  width: 100%;
+  /* border: 1px solid rgb(35, 43, 57); */
+  /* border-radius: 4px; */
+  background: rgb(231, 233, 237);
+  color: rgb(35, 43, 57);
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  padding: 0px;
+  /* margin: 0 4px; */
+}
+
+.spelltable-life-total-change-form-button {
+  flex-grow: 0;
+  width: 28px;
+  height: 21px;
+  border-radius: 4px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  /* font-size: 14px; */
+  line-height: 12px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.spelltable-life-total-change-form-button-subtract {
+  background: rgb(231, 64, 64);
+  border-radius: 4px 0 0 4px;
+}
+
+.spelltable-life-total-change-form-button-subtract:hover {
+  background: rgb(234, 103, 103);
+}
+
+.spelltable-life-total-change-form-button-add {
+  background: rgb(47, 176, 47);
+  border-radius: 0 4px 4px 0;
+}
+
+.spelltable-life-total-change-form-button-add:hover {
+  background: rgb(93, 204, 93);
+}
